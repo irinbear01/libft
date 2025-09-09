@@ -1,30 +1,52 @@
 #include "libft.h"
 
-char	*ft_memmove(char *dest, char *src, unsigned int n)
+void    *ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned int	i;
+    char    *tmp_dst;
+    char    *tmp_src;
+    size_t  i;
 
-	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+    if(!dst && !src)
+        return (NULL);
+    
+    tmp_dst = (char *)dst;
+    tmp_src = (char *)src;
+
+    i = 0;
+    if (tmp_dst > tmp_src) {
+        while (len > 0)
+        {
+            tmp_dst[len] = tmp_src[len];
+            len--;
+        }
+    }
+    else
+    {
+        while (i < len)
+        {
+            tmp_dst[i] = tmp_src[i];
+            i++;
+        } 
+    }
+    return dst;
 }
 
 // #include <stdio.h>
+// #include <string.h>
 
 // int	main(void)
 // {
-// 	char *src = "Hello, 42bkk!";
-// 	char dest[100];
+// 	char src[] = "Hello, 42bkk!";
+// 	char dest[] = "newstring";
+//     char ft_src[] = "Hello, 42bkk!";
+// 	char ft_dest[] = "newstring";
 
-// 	ft_strncpy(dest, src, 5);
-// 	printf("%s", dest);
+// 	printf("Before memmove scr = %s , dest = %s",src ,dest);
+//     printf("\nBefore ft_memmove scr = %s , dest = %s\n",ft_src ,ft_dest);
+
+//     memmove(dest,src,9);
+//     ft_memmove(ft_dest,ft_src,9);
+
+//     printf("\nAfter memmove scr = %s , dest = %s", src, dest);
+//     printf("\nAfter ft_memmove scr = %s , dest = %s", ft_src, ft_dest);
 // }
