@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khaiamsr <khaiamsr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 13:29:42 by khaiamsr          #+#    #+#             */
+/*   Updated: 2025/09/15 13:29:46 by khaiamsr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -22,7 +34,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // int main(void)
 // {
 //     char str[] = "Hello 42BKK!";
-    
+
 //     char *p1 = memchr(str, '4', 12);
 //     char *p2 = ft_memchr(str, '4', 12);
 //     printf("memchr: %s\n", p1);

@@ -1,8 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khaiamsr <khaiamsr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 13:31:59 by khaiamsr          #+#    #+#             */
+/*   Updated: 2025/09/15 13:32:03 by khaiamsr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i = 0;
+	size_t	i;
+
+	i = 0;
 	while (s[i])
 		i++;
 	return (i);
@@ -41,5 +55,5 @@ char	*ft_strdup(const char *src)
 //         printf("Duplicate: %s\n", dup);
 //         free(dup);
 //     }
-//     return 0;
+//     return (0);
 // }

@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khaiamsr <khaiamsr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 13:29:56 by khaiamsr          #+#    #+#             */
+/*   Updated: 2025/09/15 13:30:00 by khaiamsr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    unsigned    char    *tmp_dst;
-    unsigned    char    *tmp_src;
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
 
-    if(dst == (void *)0 &&  src == (void *)0)
-        return dst;
-    tmp_dst = (unsigned char *)dst;
-    tmp_src = (unsigned char *)src;
-
-    while(n>0) {
-        *tmp_dst = *tmp_src;
-        tmp_dst++;
-        tmp_src++;
-        n--;
-    }
-    return dst;
+	if (dst == (void *)0 && src == (void *)0)
+		return (dst);
+	tmp_dst = (unsigned char *)dst;
+	tmp_src = (unsigned char *)src;
+	while (n > 0)
+	{
+		*tmp_dst = *tmp_src;
+		tmp_dst++;
+		tmp_src++;
+		n--;
+	}
+	return (dst);
 }
 
 // #include <stdio.h>
@@ -38,5 +50,5 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
 //     printf("\nft_str2 after memcpy:");
 //     printf("%s",ft_str2);
 
-//     return 0;
+//     return (0);
 // }

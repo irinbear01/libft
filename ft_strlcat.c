@@ -1,37 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khaiamsr <khaiamsr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 13:32:28 by khaiamsr          #+#    #+#             */
+/*   Updated: 2025/09/15 13:32:31 by khaiamsr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t  ft_strlen(const char *s) {
-    size_t i = 0;
-    while (s[i]) i++;
-    return i;
-}
-
-size_t  ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlen(const char *s)
 {
-    size_t dlen;
-    size_t slen;
-    size_t i;
+	size_t	i;
 
-    slen = 0;
-    while (src[slen])
-        slen++;
-    if (dstsize == 0)
-        return (slen);
-    dlen = 0;
-    while (dlen < dstsize && dst[dlen])
-        dlen++;
-    if (dlen == dstsize)
-        return (dstsize + slen);
-    i = 0;
-    while (src[i] && dlen + i + 1 < dstsize)
-    {
-        dst[dlen + i] = src[i];
-        i++;
-    }
-    dst[dlen + i] = '\0';
-    return (dlen + slen);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
+
+	slen = 0;
+	while (src[slen])
+		slen++;
+	if (dstsize == 0)
+		return (slen);
+	dlen = 0;
+	while (dlen < dstsize && dst[dlen])
+		dlen++;
+	if (dlen == dstsize)
+		return (dstsize + slen);
+	i = 0;
+	while (src[i] && dlen + i + 1 < dstsize)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[dlen + i] = '\0';
+	return (dlen + slen);
+}
 
 // #include <string.h>
 // #include <stdio.h>

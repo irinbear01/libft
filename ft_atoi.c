@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khaiamsr <khaiamsr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 13:27:44 by khaiamsr          #+#    #+#             */
+/*   Updated: 2025/09/15 15:36:09 by khaiamsr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -7,17 +19,14 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
@@ -45,12 +54,12 @@ int	ft_atoi(const char *str)
 //     int num4 = atoi(str4);
 //     int ft_num4 = ft_atoi(str4);
 
-// 	printf("String \"%s\" converted to integer(atoi): %d\n", str1, num1);
-//     printf("String \"%s\" converted to integer(ft_atoi): %d\n", str1, ft_num1);
-//     printf("String \"%s\" converted to integer(atoi): %d\n", str2, num2);
-//     printf("String \"%s\" converted to integer(ft_atoi): %d\n", str2, ft_num2);
-//     printf("String \"%s\" converted to integer(atoi): %d\n", str3, num3);
-//     printf("String \"%s\" converted to integer(ft_atoi): %d\n", str3, ft_num3);
-//     printf("String \"%s\" converted to integer(atoi): %d\n", str4, num4);
-//     printf("String \"%s\" converted to integer(ft_atoi): %d\n", str4, ft_num4);
+// 	printf("String \"%s\" (atoi): %d\n", str1, num1);
+//     printf("String \"%s\" (ft_atoi): %d\n", str1, ft_num1);
+//     printf("String \"%s\" (atoi): %d\n", str2, num2);
+//     printf("String \"%s\" (ft_atoi): %d\n", str2,ft_num2);
+//     printf("String \"%s\" (atoi): %d\n", str3, num3);
+//     printf("String \"%s\" (ft_atoi): %d\n", str3,ft_num3);
+//     printf("String \"%s\" (atoi): %d\n", str4, num4);
+//     printf("String \"%s\" (ft_atoi): %d\n", str4, ft_num4);
 // }
