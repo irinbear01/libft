@@ -2,23 +2,17 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-    unsigned int    i;
-    char    *res;
-    char    new_c;
+    char *last = NULL;
 
-    new_c = (char) c;
-    res = NULL;
-    i = 0;
-
-    while (s[i])
+    while (*s)
     {
-        if(s[i] == new_c)
-            res = ((char *) &s[i]);
-        i++;
+        if (*s == (char)c)
+            last = (char *)s;
+        s++;
     }
-    if (s[i] == new_c)
-        res = ((char *) &s[i]);
-    return (res);
+    if (*s == (char)c)
+        last = (char *)s;
+    return last;
 }
 
 // #include <stdio.h>

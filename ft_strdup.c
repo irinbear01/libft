@@ -1,29 +1,25 @@
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
-    int	i;
-
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
+	size_t i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	char	*dest;
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
 
 	len = ft_strlen(src);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
+	dest = malloc((len + 1) * sizeof(char));
+	if (!dest)
 		return (NULL);
 	i = 0;
-	while (src[i] != '\0')
+	while (i < len)
 	{
 		dest[i] = src[i];
 		i++;
@@ -32,3 +28,18 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
+// #include <stdio.h>
+
+// int main(void)
+// {
+//     char *src = "Hello 42Bangkok!";
+//     char *dup = ft_strdup(src);
+
+//     if (dup)
+//     {
+//         printf("Original: %s\n", src);
+//         printf("Duplicate: %s\n", dup);
+//         free(dup);
+//     }
+//     return 0;
+// }

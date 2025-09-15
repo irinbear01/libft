@@ -1,8 +1,8 @@
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	len = 0;
+	size_t	len = 0;
 
 	while (str[len])
 		len++;
@@ -11,5 +11,5 @@ int	ft_strlen(char *str)
 
 // #include <stdio.h>
 // int main() {
-//     printf("A → %d\n", ft_strlen("test")); //4
+//     printf("A → %zu\n", ft_strlen("test")); //4
 // }

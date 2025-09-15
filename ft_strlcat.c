@@ -1,64 +1,35 @@
 #include "libft.h"
 
-int	ft_strlen(char *str)
-{
-    int	len = 0;
-
-    while (str[len])
-        len++;
-    return (len);
+size_t  ft_strlen(const char *s) {
+    size_t i = 0;
+    while (s[i]) i++;
+    return i;
 }
 
-int	ft_strlenc(const char *str)
+size_t  ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-    int	len = 0;
+    size_t dlen;
+    size_t slen;
+    size_t i;
 
-    while (str[len])
-        len++;
-    return (len);
-}
-
-void *ft_memcpy(void *dst, const void *src, size_t n)
-{
-    unsigned    char    *tmp_dst;
-    unsigned    char    *tmp_src;
-
-    if(dst == (void *)0 &&  src == (void *)0)
-        return dst;
-    tmp_dst = (unsigned char *)dst;
-    tmp_src = (unsigned char *)src;
-
-    while(n>0) {
-        *tmp_dst = *tmp_src;
-        tmp_dst++;
-        tmp_src++;
-        n--;
-    }
-    return dst;
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize) {
-    size_t dst_len;
-    size_t src_len;
-
-    dst_len = ft_strlen(dst);
-    src_len = ft_strlenc(src);
-
-    if (dst_len >= dstsize)
-        dst_len = dstsize;
-
-    if (dst_len == dstsize)
-        return (dstsize + src_len);
-
-    if (src_len < dstsize - dst_len)
-        ft_memcpy(dst + dst_len, src, src_len +1);
-
-    else
+    slen = 0;
+    while (src[slen])
+        slen++;
+    if (dstsize == 0)
+        return (slen);
+    dlen = 0;
+    while (dlen < dstsize && dst[dlen])
+        dlen++;
+    if (dlen == dstsize)
+        return (dstsize + slen);
+    i = 0;
+    while (src[i] && dlen + i + 1 < dstsize)
     {
-        ft_memcpy(dst + dst_len, src, dstsize - dst_len - 1);
-        dst[dstsize - 1] = '\0';
+        dst[dlen + i] = src[i];
+        i++;
     }
-    return (dst_len + src_len);
+    dst[dlen + i] = '\0';
+    return (dlen + slen);
 }
 
 

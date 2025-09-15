@@ -1,36 +1,41 @@
 #include "libft.h"
 
-unsigned int	ft_strnstr(char *dest, char *src, unsigned int size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int	dest_len;
-	unsigned int	src_len;
-	unsigned int	i;
+	size_t i;
+	size_t j;
 
-	dest_len = 0;
-	src_len = 0;
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	while (dest[dest_len] && dest_len < size)
-		dest_len++;
-	while (src[src_len])
-		src_len++;
-	if (size <= dest_len)
-		return (size + src_len);
-	while (src[i] && (dest_len + i) < size - 1)
+	while (big[i] && i < len)
 	{
-		dest[dest_len + i] = src[i];
+		j = 0;
+		while (big[i + j] && little[j]
+			&& i + j < len && big[i + j] == little[j])
+			j++;
+		if (little[j] == '\0')
+			return ((char *)(big + i));
 		i++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest_len + src_len);
+	return (NULL);
 }
 
-//#include <stdio.h>
 
-// int	main(void)
-//{
-//	char dest[50] = "Hello ";
-//	char src[] = "42Bangkok";
+// #include <stdio.h>
+// #include <string.h>
 
-//	printf("%d\n", ft_strnstr(dest, src, 17));
-//	printf("%s", dest);
-//}
+// int main(void)
+// {
+//     char *s1 = "Hello 42Bangkok!";
+//     char *s2 = "42";
+//     char *s3 = "Bangkok";
+
+//     printf("std: %s\n", strnstr(s1, s2, 12));
+//     printf("ft : %s\n", ft_strnstr(s1, s2, 12));
+
+//     printf("std: %s\n", strnstr(s1, s3, 7));
+//     printf("ft : %s\n", ft_strnstr(s1, s3, 7));
+
+//     return 0;
+// }

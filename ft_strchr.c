@@ -2,19 +2,14 @@
 
 char *ft_strchr(const char *s, int c)
 {
-    unsigned int    i;
-    char    new_c;
-
-    new_c = (char) c;
-    i = 0;
-    while (s[i])
+    while (*s)
     {
-        if(s[i] == new_c)
-            return ((char *) &s[i]);
-        i++;
+        if (*s == (char)c)
+            return ((char *)s);
+        s++;
     }
-    if (s[i] == new_c)
-        return ((char *) &s[i]);
+    if (*s == (char)c)
+        return ((char *)s);
     return (NULL);
 }
 
